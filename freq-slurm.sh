@@ -5,11 +5,8 @@
 #SBATCH --time=24:00:00   # walltime
 #SBATCH --ntasks=1   # number of processor cores (i.e. tasks)
 #SBATCH --nodes=1   # number of nodes
-<<<<<<< HEAD
+
 #SBATCH --cpus-per-task=1      # number of processors per task
-=======
-#SBATCH --cpus-per-task=1	# number of processors per task
->>>>>>> upstream/main
 #SBATCH -J "freq"   # job name
 
 ## /SBATCH -p general # partition (queue)
@@ -22,8 +19,3 @@ import time; \
 pyh.FreqSpectrum(saveLevel=1); \
 pyh.FreqSpectrum(loadHighPass=True, pointsPerWindow=3000, saveLevel=1);
 print(time.localtime());"
-<<<<<<< HEAD
-
-
-=======
->>>>>>> upstream/main

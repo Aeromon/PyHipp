@@ -5,11 +5,8 @@
 #SBATCH --time=24:00:00   # walltime
 #SBATCH --ntasks=1   # number of processor cores (i.e. tasks)
 #SBATCH --nodes=1   # number of nodes
-<<<<<<< HEAD
+
 #SBATCH --cpus-per-task=1      # number of processors per task
-=======
-#SBATCH --cpus-per-task=1	# number of processors per task
->>>>>>> upstream/main
 #SBATCH -J "fsall"   # job name
 
 ## /SBATCH -p general # partition (queue)
@@ -18,14 +15,8 @@
 
 # LOAD MODULES, INSERT CODE, AND RUN YOUR PROGRAMS HERE
 import DataProcessingTools as DPT; \
-import time; \
 lfall = DPT.objects.processDirs(dirs=None, exclude=['*eye*', '*mountains*'], objtype=pyh.FreqSpectrum, saveLevel=1); \
 lfall.save(); \
 hfall = DPT.objects.processDirs(dirs=None, exclude=['*eye*', '*mountains*'], objtype=pyh.FreqSpectrum, loadHighPass=True, pointsPerWindow=3000, saveLevel=1); \
 hfall.save();
-print(time.localtime());"
-<<<<<<< HEAD
-
-
-=======
->>>>>>> upstream/main
+aws sns publish --topic-arn arn:aws:sns:ap-southeast-1:443573167875:awsnotify --message "FSJobDone"
